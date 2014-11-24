@@ -11,19 +11,30 @@ There are a few minor steps to get this UI up and running.
 * Install nodejs and npm
 * Run `git clone https://github.com/DarkstarProject/dspweb.git`
 * Go into the dspweb directory and run `npm install`
-* Edit `lib/db-pool.js` and point to the darkstar database installation
-* Brand your server, edit `app.js` and modify the `app.locals` variable at the bottom.  See below for the options.
+* Edit `conf/config.js` and setup the `db` section.
+* Edit `conf/config.js` and setup the `site` section
 
 > Make sure that you are using a username/password that has access to the dspdb database
 
-app.locals
-==========
+Configuration
+=============
+The `conf/config.js` file should be something like below.  Eventually we'll transition this a wiki page and fully describe the options.
 
 <pre>
-site: {
-    name: "Your guild name here",
-    message: "A message that you want to display to everyone on the index page!"
-}
+module.exports = {
+    db: {
+        connectionLimit : 10,
+        database        : 'dspdb',
+        host            : 'localhost',
+        port            : 3306,
+        user            : 'root',
+        password        : ''
+    },
+    site: {
+        name: "Guild Name",
+        message: "Message to display on the index page!"
+    }
+};
 </pre>
 
 Accessing
