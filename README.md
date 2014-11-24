@@ -9,8 +9,8 @@ Setting Up
 There are a few minor steps to get this UI up and running.
 
 * Install nodejs and npm
-* Run `git clone https://github.com/jbackfield/supernova.git`
-* Go into the supernova directory and run `npm install`
+* Run `git clone https://github.com/DarkstarProject/dspweb.git`
+* Go into the dspweb directory and run `npm install`
 * Edit `lib/db-pool.js` and point to the darkstar database installation
 * Brand your server, edit `app.js` and modify the `app.locals` variable at the bottom.  See below for the options.
 
