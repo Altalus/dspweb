@@ -1,0 +1,20 @@
+doctype html
+html(ng-app="supernova")
+  head
+    title Supernova | #{site.name}
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js')
+    script(src='/javascripts/global.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+      if (user == null)
+        a(href="/login") Login
+      else
+        a(href="/user") #{user.login}
+        span &nbsp;|&nbsp;
+        a(href="/ah") Auction House
+    section(id='body')
+      block content
+    footer Written by Loyal v. 0.0.1 for&nbsp;
+      a(href="https://github.com/DarkstarProject/darkstar") Darkstar

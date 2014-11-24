@@ -1,0 +1,9 @@
+extends layout
+
+block content
+   script(src='/javascripts/user.js')
+   h1 Welcome back #{user.login}
+   section(ng-controller='characters')
+      ul
+         li(ng-repeat='char in chars')
+            a(href='/char/{{char.charid}}') {{char.charname}}

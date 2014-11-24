@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  script(src='/javascripts/index.js')
+  h1 #{site.name}
+  p #{site.message}
+  section(ng-controller='index')
+    h1 Character Status
+    table(border='1')
+      tr
+        th User
+        th Logged In?
+      tr(ng-repeat='char in characters')
+        td {{char.charname}}
+        td(class='user-loggedin-{{char.loggedin}}') {{char.status}}

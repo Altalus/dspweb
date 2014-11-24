@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    script(src='/javascripts/ah.js')
+    h1 Auction House
+    section(ng-init="init()" ng-controller='auctionhouse')
+        table(border='1')
+            tr
+                th Icon
+                th Item
+                th Count
+                th Last Sale
+            tr(ng-repeat='item in items')
+                td
+                    img(src='http://static.ffxiah.com/images/mini-icons/{{item.itemid}}.png')
+                td
+                    a(href='http://ffxidb.com/items/{{item.itemid}}') {{item.name}}
+                td {{item.count}}
+                td {{item.last_sale.sale}}
+        p
+            a(href='#' ng-click="back()") &lt;
+            span &nbsp;Page {{page}} of {{last_page}}&nbsp;
+            a(href='#' ng-click="next()") &gt;

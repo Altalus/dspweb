@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    script(src='/javascripts/char.js')
+    h1= char.charname
+    section(ng-init='init(#{char.charid})' ng-controller='character')
+        p Zone
+            a(href='http://wiki.ffxiclopedia.org/wiki/{{char.zone.name}}') {{char.zone.name}}
+        h1 Inventory
+        table(border='1')
+            tr(ng-repeat='slot in inventory')
+                td {{$index + 1}}
+                td
+                    a(href='http://ffxidb.com/items/{{slot.itemId}}') {{slot.name}}
