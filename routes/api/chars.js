@@ -6,9 +6,7 @@ var auth = require('../../lib/auth');
 router.get(
     '/',
     function(req, res) {
-        console.log("Getting stuffs");
         chardao.getAllChars(function(err, rows) {
-            console.log(rows);
             res.send(rows);
         });
     }
