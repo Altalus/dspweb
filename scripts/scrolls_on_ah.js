@@ -10,7 +10,7 @@ function ScrollsOnAH() {
 
     this.defaultConfig = {
         scrolls_on_ah: {
-            enabled: true,
+            enabled: false,
             cost: 1,
             seller: {id: 0, name: "Undefined"},
             interval: 60,
@@ -30,6 +30,9 @@ function ScrollsOnAH() {
         dbpool.query("SELECT * FROM item_usable WHERE name LIKE 'scroll_%'", function(err, scrolls) {
             scrolls.forEach(function(scroll) {
                 dbpool.query("SELECT COUNT(*) AS count FROM auction_house WHERE itemid = ? AND buyer_name IS NULL", [scroll.itemid], function(err, rows) {
+                    if(count > rows[0].count) {
+                        console.log("Adding scroll " + scroll.itemid + " at " + cost + " gil to AH");
+                    }
                     for(var i = rows[0].count; i < count; i++) {
                         dbpool.query("INSERT INTO auction_house (itemid, stack, seller, seller_name, date, price) " +
                         "VALUES (?, 1, ?, ?, unix_timestamp(), ?)",
