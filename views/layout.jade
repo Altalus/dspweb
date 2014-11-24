@@ -11,9 +11,13 @@ html(ng-app="supernova")
       if (user == null)
         a(href="/login") Login
       else
+        a(href="/") Home
+        span &nbsp;|&nbsp;
         a(href="/user") #{user.login}
         span &nbsp;|&nbsp;
         a(href="/ah") Auction House
+        span &nbsp;|&nbsp;
+        a(href="/logout") Logout
     section(id='body')
       block content
     footer Written by Loyal v. 0.0.1 for&nbsp;
