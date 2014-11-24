@@ -8,7 +8,6 @@ router.get(
     auth.ensureAuthenticated,
     function(req, res) {
         itemdao.findItemsByName(req.query.q, function(err, items) {
-            console.log(err);
             res.send(items);
         });
     }
