@@ -24,7 +24,13 @@ app.use(cookieParser());
 app.use(session({secret: "keyboard cat"}));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(require('less-middleware')(path.join(__dirname, 'public')));
+app.use(require('less-middleware')(path.join(__dirname, 'public'), {
+    preprocess: {
+        less: function (src) {
+            return src.replace("@import \"default_theme\";", "@import \"" + config.site.theme_file + "\";");
+        }
+    }
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/index'));
