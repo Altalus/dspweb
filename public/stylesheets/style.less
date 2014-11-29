@@ -1,7 +1,10 @@
+@import "default_theme";
+
 body {
   padding: 0;
   margin: 0 auto;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: @body;
 }
 
 a {
@@ -13,15 +16,15 @@ a {
 }
 
 header {
-  background-color: black;
-  color: azure;
+  background-color: @navbar;
+  color: @navbar-text;
   text-align: right;
   padding: 1em;
 }
 
 footer {
-  background-color: black;
-  color: azure;
+  background-color: @navbar;
+  color: @navbar-text;
   text-align: center;
   padding: 1em;
 }
@@ -36,4 +39,29 @@ footer {
 
 .user-loggedin-false {
   color: red;
+}
+
+.display-table {
+  border-collapse: collapse;
+}
+
+.display-table td, .display-table th{
+  border: @table-border;
+}
+
+.display-table.centered {
+  margin: 0 auto;
+  width: 75%;
+}
+
+.display-table th {
+  background-color: @table-header;
+}
+
+.right-text {
+  text-align: right;
+}
+
+.center-text {
+  text-align: center;
 }

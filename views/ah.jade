@@ -2,9 +2,9 @@ extends layout
 
 block content
     script(src='/javascripts/ah.js')
-    h1 Auction House
+    h1(class='center-text') Auction House
     section(ng-init="init()" ng-controller='auctionhouse')
-        table(border='1')
+        table(class='display-table centered')
             tr
                 th Icon
                 th Item
@@ -17,7 +17,7 @@ block content
                     a(href='http://ffxidb.com/items/{{item.itemid}}') {{item.name}}
                 td {{item.count}}
                 td {{item.last_sale.sale}}
-        p
+        p(class='right-text')
             a(href='#' ng-click="back()") &lt;
             span &nbsp;Page {{page}} of {{last_page}}&nbsp;
             a(href='#' ng-click="next()") &gt;
